@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="28e1e4a6-3786-4f74-a9df-8106d0ae00af" version="1">
+  <Properties>
+    <Name>Barbarians Enhanced</Name>
+    <Stability>Alpha</Stability>
+    <Teaser>Alpha.  [COLOR_WARNING_TEXT]Warchiefs and Scoundrels[ENDCOLOR] (BNW)</Teaser>
+    <Description>Barbarians Enhanced: Warchiefs and Scoundrels</Description>
+    <Authors>Wodhann, Nutty</Authors>
+    <SpecialThanks>Pazyryk, Gedemon</SpecialThanks>
+    <HideSetupGame>0</HideSetupGame>
+    <Homepage>http://forums.civfanatics.com/showthread.php?t=524136</Homepage>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadAudioSystem>0</ReloadAudioSystem>
+    <ReloadLandmarkSystem>1</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>0</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>1</ReloadUnitSystem>
+  </Properties>
+  <Dependencies />
+  <References />
+  <Blocks />
+  <Files>
+    <File md5="45E9631ACA072F9432E2B49437432476" import="1">BE_Init.lua</File>
+    <File md5="45D0C41C07F05A230F030F21697EBA9B" import="0">BE_Main.lua</File>
+    <File md5="50DDB205C4393996336D791E67954F6A" import="1">BE_Popup.lua</File>
+    <File md5="F53B07F0110590E0E3DE24BE489F7B37" import="0">BarbariansEnhanced.sql</File>
+    <File md5="EEC7B11084FAEADBAE0351E2E45DA675" import="0">BE_GameText.xml</File>
+    <File md5="761DFFE4309CC6660D2264F46B67E733" import="1">SaveUtils.lua</File>
+    <File md5="4C209E1FBBF9C0FF8228FB4061EEAC67" import="1">ShareData.lua</File>
+    <File md5="D57F14B618D3F687D714510D82170018" import="0">delete_me/CityStateDiploPopup.lua</File>
+    <File md5="8455A9355F53B9CE37C9D29E257D7512" import="0">delete_me/CityStateDiploPopup.xml</File>
+    <File md5="EC0A83FF3B721D449B39E516AC74AA33" import="0">delete_me/EaBarbarians.lua</File>
+    <File md5="29DEFBE0137E5A861153A0C4F59F143A" import="0">delete_me/EaBarbarians.sql</File>
+    <File md5="1B74575A12E62BD6DB504544BFA2EA12" import="0">delete_me/MinorCivCityFound.lua</File>
+    <File md5="43A07F422116D2CE4E29D5643E177CD6" import="0">delete_me/MinorCivLeadersCompatible.lua</File>
+    <File md5="C31B4DB3779508569B01519AD333DC35" import="0">delete_me/RevolutionDebug.lua</File>
+    <File md5="001D9E27077F1C3335606E4BA6E70B2D" import="0">delete_me/RevolutionDefines.lua</File>
+    <File md5="81EFB06EE705F2D125BFFED6A98D4D65" import="0">delete_me/RevolutionFunctions.lua</File>
+    <File md5="91133CAD9F512A77CB8D6ECB8A77AEC7" import="0">delete_me/RevolutionMain.lua</File>
+    <File md5="012E1DFCC317750BA71CE297F91B4EF0" import="0">delete_me/RevolutionUtils.lua</File>
+    <File md5="1B9D6F3251EDE2E7BE85D6F85CFE0F67" import="0">delete_me/RouteConnections.lua</File>
+    <File md5="E3C1A61B9A86B1DEDBA9D0C3AF5067DB" import="0">delete_me/xEaBarbarians.sql</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>BE_GameText.xml</UpdateDatabase>
+      <UpdateDatabase>BarbariansEnhanced.sql</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+  <EntryPoints>
+    <EntryPoint type="InGameUIAddin" file="BE_Main.lua">
+      <Name>BE_Main</Name>
+      <Description>
+      </Description>
+    </EntryPoint>
+  </EntryPoints>
+</Mod>

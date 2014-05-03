@@ -14,6 +14,13 @@ include("BE_Init.lua")
 --Events.ActivePlayerTurnEnd.Add(BE_Save)
 
 function BE_Main()
+	
+	--Kill the traditional barbarians.  (There's got to be a better way!)
+	for unit in Players[GameDefines.MAX_PLAYERS-1]:Units() do
+		unit:Kill()
+	end
+
+	--Main Loop
 	for i = 1, #tBarbarians do
 		local pPlayer = Players[tBarbarians[i].Player]
 
@@ -57,10 +64,8 @@ function BE_Main()
 							pPlayer:InitUnit(GameInfo.Units.UNIT_BARBARIAN_WARRIOR.ID, max_x, max_y)
 							tBarbarians[i].Active = true
 							if tBarbarians[i].Pirate then
-								DPrint("Setting name to ".. Locale.ConvertTextKey(GameInfo.MinorCivPirates[tBarbarians[i].ID].Description), BE_DEBUG)
 								city:SetName(Locale.ConvertTextKey(GameInfo.MinorCivPirates[tBarbarians[i].ID].Description))
 							else
-								DPrint("Setting name to ".. Locale.ConvertTextKey(GameInfo.MinorCivBarbarians[tBarbarians[i].ID].Description), BE_DEBUG)
 								city:SetName(Locale.ConvertTextKey(GameInfo.MinorCivBarbarians[tBarbarians[i].ID].Description))
 							end
 						end

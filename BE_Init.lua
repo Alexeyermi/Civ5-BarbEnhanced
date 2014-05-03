@@ -122,7 +122,7 @@ if #tMinorPlayers > 0 then
 		end
 		--Declare permanent war on all major civs
 		local player = Players[tMinorPlayers[iPlayer]]
-		PreGame.SetTeam(iPlayer, 63)
+		PreGame.SetTeam(iPlayer, GameDefines.MAX_PLAYERS-1)
 		local iTeam = player:GetTeam()
 		for iEnemy = 0, GameDefines.MAX_MAJOR_CIVS do
 			local enemy = Players[iEnemy]

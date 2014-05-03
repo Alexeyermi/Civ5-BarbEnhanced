@@ -13,11 +13,14 @@ local m_PopupInfo = nil
 -------------------
 
 function DoBarbarianPopup(iBarb)
-	--if tBarbarians[iBarb].Pirate then
 	--local pPlayer = Players[g_iMinorCivID]
 	--local sMinorCivType = pPlayer:GetMinorCivType()
-	ContextPtr:LookUpControl(g_control .."TitleLabel"):LocalizeAndSetText("[COLOR_WARNING_TEXT]{".. GameInfo.MinorCivPirates[tBarbarians[iBarb].ID].Description ..":upper}[ENDCOLOR]");
-	--ContextPtr:LookUpControl(g_control .."TitleIcon"):UnloadTexture()
+	if tBarbarians[iBarb].Pirate then
+		ContextPtr:LookUpControl(g_control .."TitleLabel"):LocalizeAndSetText("[COLOR_WARNING_TEXT]{".. GameInfo.MinorCivPirates[tBarbarians[iBarb].ID].Description ..":upper}[ENDCOLOR]");
+	else
+		ContextPtr:LookUpControl(g_control .."TitleLabel"):LocalizeAndSetText("[COLOR_WARNING_TEXT]{".. GameInfo.MinorCivBarbarians[tBarbarians[iBarb].ID].Description ..":upper}[ENDCOLOR]");
+	end
+	ContextPtr:LookUpControl(g_control .."TitleIcon"):UnloadTexture()
 	ContextPtr:LookUpControl(g_control .."TitleIcon"):SetTextureAndResize("barbarianpopuptop300.dds")
 	--else
 	--end

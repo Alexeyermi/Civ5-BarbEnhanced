@@ -1,10 +1,6 @@
 -- Barbarians Enhanced
 -- Author: Nutty
 --------------------------------------------------------------
---[causes a crash:]
---DELETE FROM Civilizations
---	WHERE Type = 'CIVILIZATION_BARBARIAN';
-
 UPDATE Defines
 	SET Value = -1
 	WHERE Name = 'BARBARIAN_MAX_XP_VALUE';	--unlimited experience from barbs [will only apply to terrorists?]
