@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- BE_GameText for Barbarians Enhanced -->
+
+<!-- Created by ModBuddy on 4/13/2014 12:12:26 AM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_ALGIERS">
+			<Text>Algiers</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_BARATARIA_BAY">
+			<Text>Barataria Bay</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_BARBADOS">
+			<Text>Barbados</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_BIAS_BAY">
+			<Text>Bias Bay</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_CABO_ROJO">
+			<Text>Cabo Rojo</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_CLEW_BAY">
+			<Text>Clew Bay</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_CUBA">
+			<Text>Cuba</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_DUNKIRK">
+			<Text>Dunkirk</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_EYL">
+			<Text>Eyl</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_GHAR_AL_MILH">
+			<Text>Ghar Al Milh</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_GULANGYU_ISLAND">
+			<Text>Gulangyu Island</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_JOLO">
+			<Text>Jolo</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_JUAN_FERNANDEZ">
+			<Text>Juan Fernandez</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_KENNERY_ISLAND">
+			<Text>Khanderi Island</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_LA_MARSA">
+			<Text>La Marsa</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_MADAGASCAR">
+			<Text>Madagascar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_MALACCA_STRAIT">
+			<Text>Malacca Strait</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_NEVIS_ISLAND">
+			<Text>Nevis Island</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_NEW_PROVIDENCE">
+			<Text>New Providence</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_OCRACOKE">
+			<Text>Ocracoke</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_PORT_ROYAL">
+			<Text>Port Royal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_ROGUES_ISLAND">
+			<Text>Rogue's Island</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_QESHM_ISLAND">
+			<Text>Qeshm Island</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_SAINT_MALO">
+			<Text>Saint-Malo</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_SEVERNDROOG">
+			<Text>Suvarnadurg</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_SOUTH_SULAWESI">
+			<Text>South Sulawesi</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_ST_MARYS_ISLAND">
+			<Text>St. Mary's Island</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_TORTUGA">
+			<Text>Tortuga</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_TRIPOLI">
+			<Text>Tripoli</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_TUNIS">
+			<Text>Tunis</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MINOR_TRAIT_BARBARIAN">
+			<Text>Barbarians</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MINOR_TRAIT_PIRATE">
+			<Text>Pirates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BARBARIAN_TRIBESMAN">
+			<Text>Tribesman</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BARBARIAN_MARAUDER">
+			<Text>Marauder</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BARBARIAN_HUNTSMAN">
+			<Text>Huntsman</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BARBARIAN_RAIDER">
+			<Text>Raider</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BARBARIAN_CLANSMAN">
+			<Text>Clansman</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BARBARIAN_HORNBOWMAN">
+			<Text>Hornbowman</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BARBARIAN_JAVELINEER">
+			<Text>Javelineer</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BARBARIAN_SLAYER">
+			<Text>Slayer</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BARBARIAN_CHAMPION">
+			<Text>Champion</Text>
+		</Row>
+	</Language_en_US>
+</GameData>
