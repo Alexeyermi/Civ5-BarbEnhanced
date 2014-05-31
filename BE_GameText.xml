@@ -5,6 +5,79 @@
 <!-- Created by ModBuddy on 4/13/2014 12:12:26 AM -->
 <GameData>
 	<Language_en_US>
+		<!-- Updates -->
+		<Update>
+			<Where Tag="TXT_KEY_CIV_BARBARIAN_DESC" />
+			<Set Text="Barbarians" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_IMPROVEMENT_ENCAMPMENT" />
+			<Set Text="Barbarian Encampment" Gender="" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CIV5_IMPROVEMENTS_ENCAMPMENT" />
+			<Set Text="Barbarian Encampment" />
+		</Update>
+
+
+		<!-- Misc -->
+		<Row Tag="TXT_KEY_IMPROVEMENT_PIRATE_COVE">
+			<Text>Pirate Cove</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_IMPROVEMENTS_PIRATE_COVE">
+			<Text>Pirate Cove</Text>
+		</Row>	
+		<Row Tag="TXT_KEY_IMPROVEMENT_TERRORIST_CAMP">
+			<Text>Terrorist Camp</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_IMPROVEMENTS_TERRORIST_CAMP">
+			<Text>Terrorist Camp</Text>
+		</Row>	
+		<Row Tag="TXT_KEY_MINOR_TRAIT_BARBARIAN">
+			<Text>Barbarians</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MINOR_TRAIT_PIRATE">
+			<Text>Pirates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MINOR_TRAIT_TERRORIST">
+			<Text>Terrorists</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_GREETING_BARBARIAN">
+			<Text>Who goes there? We are the mighty {1_CivName:textkey} people. Give us a reason not to skewer you where you stand![NEWLINE][NEWLINE]{4_SpeakAgainString}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_GREETING_PIRATE">
+			<Text>Har! We are the mighty pirates of {1_CivName:textkey}. Why are you here? Speak fast, or ye'll be walking the plank![NEWLINE][NEWLINE]{4_SpeakAgainString}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_GREETING_TERRORIST">
+			<Text>We are the freedom fighters of {1_CivName:textkey}. Trifle with us at your peril![NEWLINE][NEWLINE]{4_SpeakAgainString}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_BARBARIAN_ADJECTIVE">
+			<Text>Barbarian</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_BARBARIAN_TT">
+			<Text>A Barbarian Encampment will create Barbarian units until dispersed!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PIRATE_ADJECTIVE">
+			<Text>Pirate</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PIRATE_TT">
+			<Text>A Pirate Cove will create Barbarian units until dispersed!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_TERRORIST_ADJECTIVE">
+			<Text>Terrorist</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_TERRORIST_TT">
+			<Text>A Terrorist Camp will create Barbarian units until dispersed!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERSONALITY_CUTTHROAT">
+			<Text>Cutthroat</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_STATE_PERSONALITY_CUTTHROAT_TT">
+			<Text>[ICON_INFLUENCE] You cannot gain influence with a [COLOR_POSITIVE_TEXT]Cutthroat[ENDCOLOR] tribe. You may make agreements with them, but they could doublecross you.</Text>
+		</Row>
+
+
+		<!-- Pirate Coves -->
 		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_ALGIERS">
 			<Text>Algiers</Text>
 		</Row>
@@ -95,12 +168,68 @@
 		<Row Tag="TXT_KEY_CITY_NAME_PIRATE_TUNIS">
 			<Text>Tunis</Text>
 		</Row>
-		<Row Tag="TXT_KEY_MINOR_TRAIT_BARBARIAN">
-			<Text>Barbarians</Text>
+
+
+		<!-- Terrorist Groups -->
+		<!--older: Hashhashin, Sicarii-->
+		<!--crime syndicates: Cosa Nostra, La Eme, Yakuza, Triad, Comando Vermelho, Primeiro Comando da Capital (PCC), Penose, Milieu, Granby Crew, Clerkenwell Syndicate, Solntsevskaya Bratva, Tambovskaya Bratva-->
+		<!--gangs: Crips, Bloods, Nuestra Familia, Aryan Brotherhood-->
+		<!--KKK?-->
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_ABU_SAYYAF">
+			<Text>Abu Sayyaf</Text>
 		</Row>
-		<Row Tag="TXT_KEY_MINOR_TRAIT_PIRATE">
-			<Text>Pirates</Text>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_ALEPH">
+			<Text>Aum Shinrikyo</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_ANC">
+			<Text>African National Congress</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_AL_QAEDA">
+			<Text>al-Qaeda</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_AL_SHABAAB">
+			<Text>al-Shabaab</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_BOKO_HARAM">
+			<Text>Boko Haram</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_ELF">
+			<Text>Earth Liberation Front</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_HAMAS">
+			<Text>Hamas</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_HEZBOLLAH">
+			<Text>Hezbollah</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_IRA">
+			<Text>Irish Republican Army</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_LRA">
+			<Text>Lord's Resistance Army</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_PLF">
+			<Text>Palestine Liberation Front</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_RAF">
+			<Text>Red Army Faction</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_SHINING_PATH">
+			<Text>Shining Path</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_TAMIL_TIGERS">
+			<Text>Tamil Tigers</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_THUGGEES">
+			<Text>Thuggees</Text>
+		</Row>		
+		<Row Tag="TXT_KEY_CITY_NAME_TERRORIST_WEATHER_UNDERGROUND">
+			<Text>Weather Underground</Text>
+		</Row>
+
+
+
+		<!-- Units -->
 		<Row Tag="TXT_KEY_UNIT_BARBARIAN_TRIBESMAN">
 			<Text>Tribesman</Text>
 		</Row>

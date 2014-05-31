@@ -1,10 +1,18 @@
 -- Barbarians Enhanced
 -- Author: Nutty
 --------------------------------------------------------------
-UPDATE Defines
-	SET Value = -1
-	WHERE Name = 'BARBARIAN_MAX_XP_VALUE';	--unlimited experience from barbs [will only apply to terrorists?]
+--UPDATE Defines
+--	SET Value = -1
+--	WHERE Name = 'BARBARIAN_MAX_XP_VALUE';	--unlimited experience from barbs [will only apply to terrorists?]
 
+--INSERT INTO Civilizations (
+--		Type,						Description,	Civilopedia,	CivilopediaTag,	Strategy,	Playable,	AIPlayable,	ShortDescription,	Adjective,	DefaultPlayerColor,	ArtDefineTag,	ArtStyleType,	ArtStyleSuffix,	ArtStylePrefix,	DerivativeCiv,	PortraitIndex,	IconAtlas,	AlphaIconAtlas,	MapImage,	DawnOfManQuote,	DawnOfManImage,	DawnOfManAudio,	PackageID,	SoundtrackTag	)
+--SELECT	'CIVILIZATION_MINOR_BARB',	Description,	Civilopedia,	CivilopediaTag,	Strategy,	Playable,	AIPlayable,	ShortDescription,	Adjective,	DefaultPlayerColor,	ArtDefineTag,	ArtStyleType,	ArtStyleSuffix,	ArtStylePrefix,	DerivativeCiv,	PortraitIndex,	IconAtlas,	AlphaIconAtlas,	MapImage,	DawnOfManQuote,	DawnOfManImage,	DawnOfManAudio,	PackageID,	SoundtrackTag	
+--	FROM Civilizations WHERE Type = 'CIVILIZATION_BARBARIAN';
+
+--========--
+-- TRIBES --
+--========--
 CREATE TABLE MinorCivBarbarians (
 	'Type' TEXT NOT NULL UNIQUE,
 	'Description' TEXT,
@@ -266,21 +274,21 @@ INSERT INTO MinorCivTraits (
 SELECT	'MINOR_TRAIT_BARBARIAN',	'TXT_KEY_MINOR_TRAIT_BARBARIAN',	'CityStateMilitaristic.dds',	'barbarianpopuptop300.dds',	'citystatebackgroundmilitary.dds'	UNION ALL
 SELECT	'MINOR_TRAIT_PIRATE',		'TXT_KEY_MINOR_TRAIT_PIRATE',		'CityStateMilitaristic.dds',	'barbarianpopuptop300.dds',	'citystatebackgroundmilitary.dds'	;
 
---=======
--- UNITS
---=======
+--=======--
+-- UNITS --
+--=======--
 UPDATE Civilization_UnitClassOverrides
 	SET UnitType = CASE UnitClassType
 	WHEN 'UNITCLASS_ARCHER'				THEN 'UNIT_BARBARIAN_AXMAN'
 	WHEN 'UNITCLASS_CHARIOT_ARCHER'		THEN 'UNIT_BARBARIAN_ARCHER'	END
 	WHERE CivilizationType = 'CIVILIZATION_BARBARIAN';
 INSERT INTO Civilization_UnitClassOverrides (
-		CivilizationType,			UnitClassType,					UnitType					)
-SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_PIKEMAN',			'UNIT_BARBARIAN_CLANSMAN'	UNION ALL
-SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_COMPOSITE_BOWMAN',	'UNIT_BARBARIAN_HORNBOWMAN'	UNION ALL
-SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_CROSSBOWMAN',		'UNIT_BARBARIAN_JAVELINEER'	UNION ALL
-SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_LONGSWORDSMAN',		'UNIT_BARBARIAN_SLAYER'		UNION ALL
-SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_KNIGHT',				'UNIT_BARBARIAN_CHAMPION'	;
+		CivilizationType,			UnitClassType,					UnitType							)
+SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_PIKEMAN',			'UNIT_BARBARIAN_PIKEMAN'			UNION ALL
+SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_COMPOSITE_BOWMAN',	'UNIT_BARBARIAN_COMPOSITE_BOWMAN'	UNION ALL
+SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_CROSSBOWMAN',		'UNIT_BARBARIAN_CROSSBOWMAN'		UNION ALL
+SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_LONGSWORDSMAN',		'UNIT_BARBARIAN_LONGSWORDSMAN'		UNION ALL
+SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_KNIGHT',				'UNIT_BARBARIAN_KNIGHT'				;
 --GALLEY
 --Schooner, Sloop, Corvette, Brigantine?
 
@@ -318,109 +326,121 @@ UPDATE Units
 	SET Description = 'TXT_KEY_UNIT_BARBARIAN_RAIDER', Combat = 13, Moves = 3
 	WHERE Type = 'UNIT_BARBARIAN_HORSEMAN';
 --Clansman
-INSERT INTO Units (Type, Description, Civilopedia, Strategy, Help, Requirements, Combat, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness, UnitArtInfo, UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
-	SELECT	'UNIT_BARBARIAN_CLANSMAN', 'TXT_KEY_UNIT_BARBARIAN_CLANSMAN', Civilopedia, Strategy, Help, Requirements, 15, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
-			'ART_DEF_UNIT_PIKEMAN', UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
+INSERT INTO Units (
+		Type,						Description,						Civilopedia, Strategy, Help, Requirements,	Combat,	RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		UnitArtInfo,			UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
+SELECT	'UNIT_BARBARIAN_PIKEMAN',	'TXT_KEY_UNIT_BARBARIAN_CLANSMAN',	Civilopedia, Strategy, Help, Requirements,	15,		RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		'ART_DEF_UNIT_PIKEMAN',	UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
 	FROM Units WHERE Type = 'UNIT_PIKEMAN';
 INSERT INTO Unit_AITypes (UnitType, UnitAIType)
-	SELECT 'UNIT_BARBARIAN_CLANSMAN', UnitAIType
+	SELECT 'UNIT_BARBARIAN_PIKEMAN', UnitAIType
 	FROM Unit_AITypes WHERE UnitType = 'UNIT_PIKEMAN';
 INSERT INTO Unit_ClassUpgrades (UnitType, UnitClassType)
-	SELECT 'UNIT_BARBARIAN_CLANSMAN', UnitClassType
+	SELECT 'UNIT_BARBARIAN_PIKEMAN', UnitClassType
 	FROM Unit_ClassUpgrades WHERE UnitType = 'UNIT_PIKEMAN';
 INSERT INTO Unit_Flavors (UnitType, FlavorType, Flavor)
-	SELECT 'UNIT_BARBARIAN_CLANSMAN', FlavorType, Flavor
+	SELECT 'UNIT_BARBARIAN_PIKEMAN', FlavorType, Flavor
 	FROM Unit_Flavors WHERE UnitType = 'UNIT_PIKEMAN';
 INSERT INTO Unit_FreePromotions (UnitType, PromotionType)
-	SELECT 'UNIT_BARBARIAN_CLANSMAN', PromotionType
+	SELECT 'UNIT_BARBARIAN_PIKEMAN', PromotionType
 	FROM Unit_FreePromotions WHERE UnitType = 'UNIT_PIKEMAN';
 INSERT INTO Unit_ResourceQuantityRequirements (UnitType, ResourceType, Cost)
-	SELECT 'UNIT_BARBARIAN_CLANSMAN', ResourceType, Cost
+	SELECT 'UNIT_BARBARIAN_PIKEMAN', ResourceType, Cost
 	FROM Unit_ResourceQuantityRequirements WHERE UnitType = 'UNIT_PIKEMAN';
 --Javelineer
-INSERT INTO Units (Type, Description, Civilopedia, Strategy, Help, Requirements, Combat, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness, UnitArtInfo, UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
-	SELECT	'UNIT_BARBARIAN_JAVELINEER', 'TXT_KEY_UNIT_BARBARIAN_JAVELINEER', Civilopedia, Strategy, Help, Requirements, 5, 13, Cost, Moves, Immobile, 2, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
-			'ART_DEF_UNIT_COMPOSITE_BOWMAN', UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
+INSERT INTO Units (
+		Type,								Description,							Civilopedia, Strategy, Help, Requirements, Combat,	RangedCombat,	Cost, Moves, Immobile,	Range,	BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		UnitArtInfo,						UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
+SELECT	'UNIT_BARBARIAN_COMPOSITE_BOWMAN',	'TXT_KEY_UNIT_BARBARIAN_JAVELINEER',	Civilopedia, Strategy, Help, Requirements, 5,		13,				Cost, Moves, Immobile,	2,		BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		'ART_DEF_UNIT_COMPOSITE_BOWMAN',	UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
 	FROM Units WHERE Type = 'UNIT_COMPOSITE_BOWMAN';
 INSERT INTO Unit_AITypes (UnitType, UnitAIType)
-	SELECT 'UNIT_BARBARIAN_JAVELINEER', UnitAIType
+	SELECT 'UNIT_BARBARIAN_COMPOSITE_BOWMAN', UnitAIType
 	FROM Unit_AITypes WHERE UnitType = 'UNIT_COMPOSITE_BOWMAN';
 INSERT INTO Unit_ClassUpgrades (UnitType, UnitClassType)
-	SELECT 'UNIT_BARBARIAN_JAVELINEER', UnitClassType
+	SELECT 'UNIT_BARBARIAN_COMPOSITE_BOWMAN', UnitClassType
 	FROM Unit_ClassUpgrades WHERE UnitType = 'UNIT_COMPOSITE_BOWMAN';
 INSERT INTO Unit_Flavors (UnitType, FlavorType, Flavor)
-	SELECT 'UNIT_BARBARIAN_JAVELINEER', FlavorType, Flavor
+	SELECT 'UNIT_BARBARIAN_COMPOSITE_BOWMAN', FlavorType, Flavor
 	FROM Unit_Flavors WHERE UnitType = 'UNIT_COMPOSITE_BOWMAN';
 INSERT INTO Unit_FreePromotions (UnitType, PromotionType)
-	SELECT 'UNIT_BARBARIAN_JAVELINEER', PromotionType
+	SELECT 'UNIT_BARBARIAN_COMPOSITE_BOWMAN', PromotionType
 	FROM Unit_FreePromotions WHERE UnitType = 'UNIT_COMPOSITE_BOWMAN';
 INSERT INTO Unit_ResourceQuantityRequirements (UnitType, ResourceType, Cost)
-	SELECT 'UNIT_BARBARIAN_JAVELINEER', ResourceType, Cost
+	SELECT 'UNIT_BARBARIAN_COMPOSITE_BOWMAN', ResourceType, Cost
 	FROM Unit_ResourceQuantityRequirements WHERE UnitType = 'UNIT_COMPOSITE_BOWMAN';
 --Hornbowman
-INSERT INTO Units (Type, Description, Civilopedia, Strategy, Help, Requirements, Combat, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness, UnitArtInfo, UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
-	SELECT	'UNIT_BARBARIAN_HORNBOWMAN', 'TXT_KEY_UNIT_BARBARIAN_HORNBOWMAN', Civilopedia, Strategy, Help, Requirements, 15, 16, Cost, Moves, Immobile, 2, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
-			'ART_DEF_UNIT_BARBARIAN_ARCHER', UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
+INSERT INTO Units (
+		Type,							Description,							Civilopedia, Strategy, Help, Requirements,	Combat,	RangedCombat,	Cost, Moves, Immobile,	Range,	BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		UnitArtInfo,						UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
+SELECT	'UNIT_BARBARIAN_CROSSBOWMAN',	'TXT_KEY_UNIT_BARBARIAN_HORNBOWMAN',	Civilopedia, Strategy, Help, Requirements,	15,		16,				Cost, Moves, Immobile,	2,		BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		'ART_DEF_UNIT_BARBARIAN_ARCHER',	UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
 	FROM Units WHERE Type = 'UNIT_CROSSBOWMAN';
 INSERT INTO Unit_AITypes (UnitType, UnitAIType)
-	SELECT 'UNIT_BARBARIAN_HORNBOWMAN', UnitAIType
+	SELECT 'UNIT_BARBARIAN_CROSSBOWMAN', UnitAIType
 	FROM Unit_AITypes WHERE UnitType = 'UNIT_CROSSBOWMAN';
 INSERT INTO Unit_ClassUpgrades (UnitType, UnitClassType)
-	SELECT 'UNIT_BARBARIAN_HORNBOWMAN', UnitClassType
+	SELECT 'UNIT_BARBARIAN_CROSSBOWMAN', UnitClassType
 	FROM Unit_ClassUpgrades WHERE UnitType = 'UNIT_CROSSBOWMAN';
 INSERT INTO Unit_Flavors (UnitType, FlavorType, Flavor)
-	SELECT 'UNIT_BARBARIAN_HORNBOWMAN', FlavorType, Flavor
+	SELECT 'UNIT_BARBARIAN_CROSSBOWMAN', FlavorType, Flavor
 	FROM Unit_Flavors WHERE UnitType = 'UNIT_CROSSBOWMAN';
 INSERT INTO Unit_FreePromotions (UnitType, PromotionType)
-	SELECT 'UNIT_BARBARIAN_HORNBOWMAN', PromotionType
+	SELECT 'UNIT_BARBARIAN_CROSSBOWMAN', PromotionType
 	FROM Unit_FreePromotions WHERE UnitType = 'UNIT_CROSSBOWMAN';
 INSERT INTO Unit_ResourceQuantityRequirements (UnitType, ResourceType, Cost)
-	SELECT 'UNIT_BARBARIAN_HORNBOWMAN', ResourceType, Cost
+	SELECT 'UNIT_BARBARIAN_CROSSBOWMAN', ResourceType, Cost
 	FROM Unit_ResourceQuantityRequirements WHERE UnitType = 'UNIT_CROSSBOWMAN';
 --Slayer
-INSERT INTO Units (Type, Description, Civilopedia, Strategy, Help, Requirements, Combat, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness, UnitArtInfo, UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
-	SELECT	'UNIT_BARBARIAN_SLAYER', 'TXT_KEY_UNIT_BARBARIAN_SLAYER', Civilopedia, Strategy, Help, Requirements, 21, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
-			'ART_DEF_UNIT_LONGSWORDSMAN', UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
+INSERT INTO Units (
+		Type,							Description,						Civilopedia, Strategy, Help, Requirements,	Combat,	RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		UnitArtInfo,					UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
+SELECT	'UNIT_BARBARIAN_LONGSWORDSMAN',	'TXT_KEY_UNIT_BARBARIAN_SLAYER',	Civilopedia, Strategy, Help, Requirements,	21,		RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		'ART_DEF_UNIT_LONGSWORDSMAN',	UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
 	FROM Units WHERE Type = 'UNIT_LONGSWORDSMAN';
 INSERT INTO Unit_AITypes (UnitType, UnitAIType)
-	SELECT 'UNIT_BARBARIAN_SLAYER', UnitAIType
+	SELECT 'UNIT_BARBARIAN_LONGSWORDSMAN', UnitAIType
 	FROM Unit_AITypes WHERE UnitType = 'UNIT_LONGSWORDSMAN';
 INSERT INTO Unit_ClassUpgrades (UnitType, UnitClassType)
-	SELECT 'UNIT_BARBARIAN_SLAYER', UnitClassType
+	SELECT 'UNIT_BARBARIAN_LONGSWORDSMAN', UnitClassType
 	FROM Unit_ClassUpgrades WHERE UnitType = 'UNIT_LONGSWORDSMAN';
 INSERT INTO Unit_Flavors (UnitType, FlavorType, Flavor)
-	SELECT 'UNIT_BARBARIAN_SLAYER', FlavorType, Flavor
+	SELECT 'UNIT_BARBARIAN_LONGSWORDSMAN', FlavorType, Flavor
 	FROM Unit_Flavors WHERE UnitType = 'UNIT_LONGSWORDSMAN';
 INSERT INTO Unit_FreePromotions (UnitType, PromotionType)
-	SELECT 'UNIT_BARBARIAN_SLAYER', PromotionType
+	SELECT 'UNIT_BARBARIAN_LONGSWORDSMAN', PromotionType
 	FROM Unit_FreePromotions WHERE UnitType = 'UNIT_LONGSWORDSMAN';
 INSERT INTO Unit_ResourceQuantityRequirements (UnitType, ResourceType, Cost)
-	SELECT 'UNIT_BARBARIAN_SLAYER', ResourceType, Cost
+	SELECT 'UNIT_BARBARIAN_LONGSWORDSMAN', ResourceType, Cost
 	FROM Unit_ResourceQuantityRequirements WHERE UnitType = 'UNIT_LONGSWORDSMAN';
 --Champion
-INSERT INTO Units (Type, Description, Civilopedia, Strategy, Help, Requirements, Combat, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness, UnitArtInfo, UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
-	SELECT	'UNIT_BARBARIAN_CHAMPION', 'TXT_KEY_UNIT_BARBARIAN_CHAMPION', Civilopedia, Strategy, Help, Requirements, 18, RangedCombat, Cost, 3, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
-			'ART_DEF_UNIT_KNIGHT', UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
+INSERT INTO Units (
+		Type,						Description,						Civilopedia, Strategy, Help, Requirements,	Combat,	RangedCombat, Cost,	Moves,	Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		UnitArtInfo,			UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
+SELECT	'UNIT_BARBARIAN_KNIGHT',	'TXT_KEY_UNIT_BARBARIAN_CHAMPION',	Civilopedia, Strategy, Help, Requirements,	18,		RangedCombat, Cost,	3,		Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+		'ART_DEF_UNIT_KNIGHT',	UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
 	FROM Units WHERE Type = 'UNIT_KNIGHT';
 INSERT INTO Unit_AITypes (UnitType, UnitAIType)
-	SELECT 'UNIT_BARBARIAN_CHAMPION', UnitAIType
+	SELECT 'UNIT_BARBARIAN_KNIGHT', UnitAIType
 	FROM Unit_AITypes WHERE UnitType = 'UNIT_KNIGHT';
 INSERT INTO Unit_ClassUpgrades (UnitType, UnitClassType)
-	SELECT 'UNIT_BARBARIAN_CHAMPION', UnitClassType
+	SELECT 'UNIT_BARBARIAN_KNIGHT', UnitClassType
 	FROM Unit_ClassUpgrades WHERE UnitType = 'UNIT_KNIGHT';
 INSERT INTO Unit_Flavors (UnitType, FlavorType, Flavor)
-	SELECT 'UNIT_BARBARIAN_CHAMPION', FlavorType, Flavor
+	SELECT 'UNIT_BARBARIAN_KNIGHT', FlavorType, Flavor
 	FROM Unit_Flavors WHERE UnitType = 'UNIT_KNIGHT';
 INSERT INTO Unit_FreePromotions (UnitType, PromotionType)
-	SELECT 'UNIT_BARBARIAN_CHAMPION', PromotionType
+	SELECT 'UNIT_BARBARIAN_KNIGHT', PromotionType
 	FROM Unit_FreePromotions WHERE UnitType = 'UNIT_KNIGHT';
 INSERT INTO Unit_ResourceQuantityRequirements (UnitType, ResourceType, Cost)
-	SELECT 'UNIT_BARBARIAN_CHAMPION', ResourceType, Cost
+	SELECT 'UNIT_BARBARIAN_KNIGHT', ResourceType, Cost
 	FROM Unit_ResourceQuantityRequirements WHERE UnitType = 'UNIT_KNIGHT';
 --Galley
---INSERT INTO Units (Type, Description, Civilopedia, Strategy, Help, Requirements, Combat, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness, UnitArtInfo, UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
---	SELECT	'UNIT_BARBARIAN_GALLEY', 'TXT_KEY_UNIT_GALLEY', 'TXT_KEY_UNIT_GALLEY_PEDIA', 'TXT_KEY_UNIT_GALLEY_STRATEGY', Help, Requirements, Combat, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
---			'ART_DEF_UNIT_BARBARIAN_GALLEY', UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
+--INSERT INTO Units (
+--		Type,						Description,			Civilopedia,					Strategy,						Help, Requirements, Combat, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+--		UnitArtInfo,						UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas)
+--SELECT	'UNIT_BARBARIAN_GALLEY',	'TXT_KEY_UNIT_GALLEY',	'TXT_KEY_UNIT_GALLEY_PEDIA',	'TXT_KEY_UNIT_GALLEY_STRATEGY',	Help, Requirements, Combat, RangedCombat, Cost, Moves, Immobile, Range, BaseSightRange, Class, Special, Capture, CombatClass, Domain, CivilianAttackPriority, DefaultUnitAI, Food, NoBadGoodies, RivalTerritory, MilitarySupport, MilitaryProduction, Pillage, Found, FoundAbroad, CultureBombRadius, GoldenAgeTurns, IgnoreBuildingDefense, PrereqResources, Mechanized, Suicide, CaptureWhileEmbarked, PrereqTech, ObsoleteTech, GoodyHutUpgradeUnitClass, HurryCostModifier, AdvancedStartCost, MinAreaSize, AirUnitCap, NukeDamageLevel, WorkRate, NumFreeTechs, RushBuilding, BaseHurry, HurryMultiplier, BaseGold, NumGoldPerEra, SpreadReligion, CombatLimit, RangeAttackOnlyInDomain, RangeAttackIgnoreLOS, RangedCombatLimit, XPValueAttack, XPValueDefense, SpecialCargo, DomainCargo, Conscription, ExtraMaintenanceCost, NoMaintenance, Unhappiness,
+--		'ART_DEF_UNIT_BARBARIAN_GALLEY',	UnitArtInfoCulturalVariation, UnitArtInfoEraVariation, ProjectPrereq, SpaceshipProject, LeaderPromotion, LeaderExperience, DontShowYields, ShowInPedia, MoveRate, UnitFlagIconOffset, PortraitIndex, IconAtlas, UnitFlagAtlas
 --	FROM Units WHERE Type = 'UNIT_GALLEY';
 --INSERT INTO Unit_AITypes (UnitType, UnitAIType)
 --	SELECT 'UNIT_BARBARIAN_GALLEY', UnitAIType
@@ -437,3 +457,58 @@ INSERT INTO Unit_ResourceQuantityRequirements (UnitType, ResourceType, Cost)
 --INSERT INTO Unit_ResourceQuantityRequirements (UnitType, ResourceType, Cost)
 --	SELECT 'UNIT_BARBARIAN_GALLEY', ResourceType, Cost
 --	FROM Unit_ResourceQuantityRequirements WHERE UnitType = 'UNIT_GALLEY';
+
+
+--=============--
+-- ENCAMPMENTS --
+--=============--
+--Not going to work...
+
+INSERT INTO BuildingClasses (
+			Type							)
+VALUES (	'BUILDINGCLASS_BARBARIAN_CAMP'	);
+INSERT INTO Buildings (
+			Type,						BuildingClass,					ArtDefineTag							)
+VALUES (	'BUILDING_BARBARIAN_CAMP',	'BUILDINGCLASS_BARBARIAN_CAMP',	'ART_DEF_IMPROVEMENT_BARBARIAN_CAMP'	);
+INSERT INTO Civilization_FreeBuildingClasses (
+			CivilizationType,			BuildingClassType				)
+VALUES (	'CIVILIZATION_BARBARIAN',	'BUILDINGCLASS_BARBARIAN_CAMP'	);
+
+
+--ALTERNATIVE: Barbarian Camp "Unit"
+
+----INSERT INTO UnitClasses (
+----			Type,						DefaultUnit				)
+----VALUES (	'UNITCLASS_BARBARIAN_CAMP',	'UNIT_BARBARIAN_CAMP'	);
+--INSERT INTO Units (
+--			Class,					Type,					Description,						Immobile,	UnitArtInfo,					ShowInPedia,	PortraitIndex,	IconAtlas		)
+--VALUES (	'UNITCLASS_SETTLER',	'UNIT_BARBARIAN_CAMP',	'TXT_KEY_IMPROVEMENT_ENCAMPMENT',	1,			'ART_DEF_UNIT_BARBARIAN_CAMP',	0,				21,				'TERRAIN_ATLAS');
+----INSERT INTO Civilization_UnitClassOverrides (
+----		CivilizationType,			UnitClassType				)
+----SELECT	'CIVILIZATION_MINOR',		'UNITCLASS_BARBARIAN_CAMP'	UNION ALL
+----SELECT	'CIVILIZATION_BARBARIAN',	'UNITCLASS_BARBARIAN_CAMP'	;
+--INSERT INTO Unit_FreePromotions (
+--			UnitType,				PromotionType				)
+--VALUES (	'UNIT_BARBARIAN_CAMP',	'PROMOTION_ONLY_DEFENSIVE'	);
+--UPDATE Civilization_UnitClassOverrides
+--	SET UnitType = 'UNIT_BARBARIAN_CAMP'
+--	WHERE CivilizationType = 'CIVILIZATION_BARBARIAN'
+--	AND UnitClassType = 'UNITCLASS_SETTLER';
+--INSERT INTO ArtDefine_UnitInfos (
+--			Type,							DamageStates,	Formation,	UnitFlagAtlas,	IconAtlas	)
+--VALUES (	'ART_DEF_UNIT_BARBARIAN_CAMP',	1,				'',			'',				''			);
+--INSERT INTO ArtDefine_UnitMemberInfos (
+--			Type,									Scale,	Domain,		Model,					MaterialTypeTag,	MaterialTypeSoundOverrideTag	)
+--VALUES (	'ART_DEF_UNIT_MEMBER_BARBARIAN_CAMP',	0.14,	'',			'Privateer.fxsxml',		'',					''								);
+--INSERT INTO ArtDefine_UnitInfoMemberInfos (
+--			UnitInfoType,					UnitMemberInfoType,						NumMembers	)
+--VALUES (	'ART_DEF_UNIT_BARBARIAN_CAMP',	'ART_DEF_UNIT_MEMBER_BARBARIAN_CAMP',	1			);
+--INSERT INTO ArtDefine_UnitMemberCombats (
+--			UnitMemberType,							EnableActions,	DisableActions,	HasRefaceAfterCombat,	RushAttackFormation	)
+--VALUES (	'ART_DEF_UNIT_MEMBER_BARBARIAN_CAMP',	'',				'',				0,						''					);
+----INSERT INTO ArtDefine_UnitMemberCombatWeapons (
+----			UnitMemberType,							Index,	SubIndex,	ID,	HitEffect,	WeaponTypeTag,	WeaponTypeSoundOverrideTag	)
+----VALUES (	'ART_DEF_UNIT_MEMBER_BARBARIAN_CAMP',	0,		0,			'',	'',			'',				''							);
+--INSERT INTO ArtDefine_StrategicView (
+--			StrategicViewType,				TileType,	Asset					)
+--VALUES (	'ART_DEF_UNIT_BARBARIAN_CAMP',	'Unit',		'SV_BarbarianCamp.dds'	);

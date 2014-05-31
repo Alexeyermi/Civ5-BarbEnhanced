@@ -1,0 +1,3 @@
+-- Gods and Kings update
+UPDATE Units SET Combat=50, AirInterceptRange=2 WHERE Type='UNIT_AIRFIELD_DEFENSE_AA' AND EXISTS (SELECT Value FROM Defines WHERE Name='MAX_HIT_POINTS' AND Value=100);
+UPDATE Units SET Combat=65, AirInterceptRange=2 WHERE Type='UNIT_AIRFIELD_DEFENSE_SAM' AND EXISTS (SELECT Value FROM Defines WHERE Name='MAX_HIT_POINTS' AND Value=100);

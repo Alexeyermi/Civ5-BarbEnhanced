@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+  <ArtDefine_UnitInfos>
+    <Row>
+      <Type>ART_DEF_UNIT_AIRFIELD_DEFENSE_AA</Type>
+      <DamageStates>1</DamageStates>
+      <Formation>TwoBigGuns</Formation>
+    </Row>
+  </ArtDefine_UnitInfos>
+
+  <ArtDefine_UnitInfoMemberInfos>
+    <Row>
+      <UnitInfoType>ART_DEF_UNIT_AIRFIELD_DEFENSE_AA</UnitInfoType>
+      <UnitMemberInfoType>ART_DEF_UNIT_MEMBER_AIRFIELD_DEFENSE_AA</UnitMemberInfoType>
+      <NumMembers>2</NumMembers>
+    </Row>
+  </ArtDefine_UnitInfoMemberInfos>
+
+  <ArtDefine_UnitMemberInfos>
+    <Row>
+      <Type>ART_DEF_UNIT_MEMBER_AIRFIELD_DEFENSE_AA</Type>
+      <Scale>0.07</Scale>
+      <Domain></Domain>
+      <Model>Assets/Units/AntiAircraftGun/AntiAircraftGun.fxsxml</Model>
+      <MaterialTypeTag>METAL</MaterialTypeTag>
+      <MaterialTypeSoundOverrideTag>METALSM</MaterialTypeSoundOverrideTag>
+    </Row>
+  </ArtDefine_UnitMemberInfos>
+
+  <ArtDefine_UnitMemberCombats>
+    <Row>
+      <UnitMemberType>ART_DEF_UNIT_MEMBER_AIRFIELD_DEFENSE_AA</UnitMemberType>
+      <EnableActions>Idle Attack RunCharge AttackCity Bombard Death BombardDefend Run Fortify CombatReady</EnableActions>
+      <DisableActions></DisableActions>
+      <HasShortRangedAttack>1</HasShortRangedAttack>
+      <HasLongRangedAttack>1</HasLongRangedAttack>
+      <HasStationaryMelee>1</HasStationaryMelee>
+      <HasRefaceAfterCombat>1</HasRefaceAfterCombat>
+      <RushAttackFormation></RushAttackFormation>
+    </Row>
+  </ArtDefine_UnitMemberCombats>
+
+  <ArtDefine_UnitMemberCombatWeapons>
+    <Row>
+      <UnitMemberType>ART_DEF_UNIT_MEMBER_AIRFIELD_DEFENSE_AA</UnitMemberType>
+      <Index>0</Index>
+      <SubIndex>0</SubIndex>
+      <ID></ID>
+      <HitEffect>ART_DEF_VEFFECT_ANTIAIR_IMPACT_$(TERRAIN)</HitEffect>
+      <HitRadius>32.0</HitRadius>
+      <ContinuousFire>1</ContinuousFire>
+      <WeaponTypeTag>BULLETHC</WeaponTypeTag>
+      <WeaponTypeSoundOverrideTag>BULLETHC</WeaponTypeSoundOverrideTag>
+    </Row>
+    <Row>
+      <UnitMemberType>ART_DEF_UNIT_MEMBER_AIRFIELD_DEFENSE_AA</UnitMemberType>
+      <Index>1</Index>
+      <SubIndex>0</SubIndex>
+      <ID></ID>
+      <HitEffect>ART_DEF_VEFFECT_ANTIAIR_IMPACT_$(TERRAIN)</HitEffect>
+      <HitRadius>16.0</HitRadius>
+      <WeaponTypeTag>BULLETHC</WeaponTypeTag>
+      <WeaponTypeSoundOverrideTag>BULLETHC</WeaponTypeSoundOverrideTag>
+    </Row>
+  </ArtDefine_UnitMemberCombatWeapons>
+
+  <ArtDefine_StrategicView>
+    <Row>
+      <StrategicViewType>ART_DEF_UNIT_AIRFIELD_DEFENSE_AA</StrategicViewType>
+      <TileType>Unit</TileType>
+      <Asset>SV_Airfield_Defense_AA.dds</Asset>
+    </Row>
+  </ArtDefine_StrategicView>
+</GameData>

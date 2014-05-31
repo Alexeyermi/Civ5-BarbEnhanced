@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+  <UnitClasses>
+    <Row>
+      <Type>UNITCLASS_AIRFIELD_DEFENSE_AA</Type>
+      <Description>TXT_KEY_UNIT_AIRFIELD_DEFENSE_AA</Description>
+      <DefaultUnit>UNIT_AIRFIELD_DEFENSE_AA</DefaultUnit>
+    </Row>
+
+    <Row>
+      <Type>UNITCLASS_AIRFIELD_DEFENSE_SAM</Type>
+      <Description>TXT_KEY_UNIT_AIRFIELD_DEFENSE_SAM</Description>
+      <DefaultUnit>UNIT_AIRFIELD_DEFENSE_SAM</DefaultUnit>
+    </Row>
+  </UnitClasses>
+  
+  <Units>
+    <Row>
+      <Class>UNITCLASS_AIRFIELD_DEFENSE_AA</Class>
+      <Type>UNIT_AIRFIELD_DEFENSE_AA</Type>
+      <PrereqTech>TECH_FLIGHT</PrereqTech>
+      <Combat>32</Combat>
+      <Range>2</Range>
+      <!-- set via SQL AirInterceptRange>2</AirInterceptRange -->
+      <Cost>375</Cost>
+      <Moves>1</Moves>
+      <Immobile>true</Immobile>
+      <CombatClass>UNITCOMBAT_GUN</CombatClass>
+      <Domain>DOMAIN_LAND</Domain>
+      <DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+      <Description>TXT_KEY_UNIT_AIRFIELD_DEFENSE_AA</Description>
+      <Civilopedia>TXT_KEY_UNIT_AIRFIELD_DEFENSE_AA_TEXT</Civilopedia>
+      <Strategy>TXT_KEY_UNIT_AIRFIELD_DEFENSE_AA_STRATEGY</Strategy>
+      <Help>TXT_KEY_UNIT_AIRFIELD_DEFENSE_AA_HELP</Help>
+      <MilitarySupport>true</MilitarySupport>
+      <MilitaryProduction>true</MilitaryProduction>
+      <AdvancedStartCost>35</AdvancedStartCost>
+      <Conscription>5</Conscription>
+      <!-- Remove the next line to permit Stealth Bombers and Missiles to rebase here -->
+			<SpecialCargo>SPECIALUNIT_FIGHTER</SpecialCargo>
+      <DomainCargo>DOMAIN_AIR</DomainCargo>
+      <UnitArtInfo>ART_DEF_UNIT_AIRFIELD_DEFENSE_AA</UnitArtInfo>
+      <UnitFlagAtlas>UNITS_AIRFIELD_DEFENSE_FLAG_ATLAS</UnitFlagAtlas>
+      <UnitFlagIconOffset>0</UnitFlagIconOffset>
+      <IconAtlas>UNITS_AIRFIELD_DEFENSE_ICON_ATLAS</IconAtlas>
+      <PortraitIndex>0</PortraitIndex>
+    </Row>
+
+    <Row>
+      <Class>UNITCLASS_AIRFIELD_DEFENSE_SAM</Class>
+      <Type>UNIT_AIRFIELD_DEFENSE_SAM</Type>
+      <PrereqTech>TECH_RADAR</PrereqTech>
+      <Combat>40</Combat>
+      <Range>2</Range>
+      <!-- set via SQL AirInterceptRange>2</AirInterceptRange -->
+      <Cost>425</Cost>
+      <Moves>1</Moves>
+      <Immobile>true</Immobile>
+      <CombatClass>UNITCOMBAT_GUN</CombatClass>
+      <Domain>DOMAIN_LAND</Domain>
+      <DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+      <Description>TXT_KEY_UNIT_AIRFIELD_DEFENSE_SAM</Description>
+      <Civilopedia>TXT_KEY_UNIT_AIRFIELD_DEFENSE_SAM_TEXT</Civilopedia>
+      <Strategy>TXT_KEY_UNIT_AIRFIELD_DEFENSE_SAM_STRATEGY</Strategy>
+      <Help>TXT_KEY_UNIT_AIRFIELD_DEFENSE_SAM_HELP</Help>
+      <MilitarySupport>true</MilitarySupport>
+      <MilitaryProduction>true</MilitaryProduction>
+      <Conscription>1</Conscription>
+      <AdvancedStartCost>50</AdvancedStartCost>
+      <!-- Uncomment the next line to deny Stealth Bombers and Missiles rebasing here -->
+      <!-- SpecialCargo>SPECIALUNIT_FIGHTER</SpecialCargo -->
+      <DomainCargo>DOMAIN_AIR</DomainCargo>
+      <UnitArtInfo>ART_DEF_UNIT_AIRFIELD_DEFENSE_SAM</UnitArtInfo>
+      <UnitFlagAtlas>UNITS_AIRFIELD_DEFENSE_FLAG_ATLAS</UnitFlagAtlas>
+      <UnitFlagIconOffset>1</UnitFlagIconOffset>
+      <IconAtlas>UNITS_AIRFIELD_DEFENSE_ICON_ATLAS</IconAtlas>
+      <PortraitIndex>1</PortraitIndex>
+    </Row>
+  </Units>
+
+  <Unit_ClassUpgrades>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_AA</UnitType>
+      <UnitClassType>UNITCLASS_AIRFIELD_DEFENSE_SAM</UnitClassType>
+    </Row>
+  </Unit_ClassUpgrades>
+
+  <Unit_FreePromotions>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_AA</UnitType>
+      <PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_AA</UnitType>
+      <PromotionType>PROMOTION_FASTER_HEAL</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_AA</UnitType>
+      <PromotionType>PROMOTION_INTERCEPTION_II</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_AA</UnitType>
+      <PromotionType>PROMOTION_ANTI_AIR</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_AA</UnitType>
+      <PromotionType>PROMOTION_ANTI_HELICOPTER</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_AA</UnitType>
+      <PromotionType>PROMOTION_CARGO_III</PromotionType>
+    </Row>
+
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_SAM</UnitType>
+      <PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_SAM</UnitType>
+      <PromotionType>PROMOTION_FASTER_HEAL</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_SAM</UnitType>
+      <PromotionType>PROMOTION_INTERCEPTION_IV</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_SAM</UnitType>
+      <PromotionType>PROMOTION_ANTI_AIR</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_SAM</UnitType>
+      <PromotionType>PROMOTION_ANTI_HELICOPTER</PromotionType>
+    </Row>
+    <!-- Cargo is 3 + 2 and not 5 as otherwise upgraded AA would get 3 + 5 -->
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_SAM</UnitType>
+      <PromotionType>PROMOTION_CARGO_III</PromotionType>
+    </Row>
+    <Row>
+      <UnitType>UNIT_AIRFIELD_DEFENSE_SAM</UnitType>
+      <PromotionType>PROMOTION_CARGO_II</PromotionType>
+    </Row>
+  </Unit_FreePromotions>
+
+  <Civilization_UnitClassOverrides>
+    <Row>
+      <CivilizationType>CIVILIZATION_MINOR</CivilizationType>
+      <UnitClassType>UNITCLASS_AIRFIELD_DEFENSE_AA</UnitClassType>
+      <UnitType/>
+    </Row>
+    <Row>
+      <CivilizationType>CIVILIZATION_BARBARIAN</CivilizationType>
+      <UnitClassType>UNITCLASS_AIRFIELD_DEFENSE_AA</UnitClassType>
+      <UnitType/>
+    </Row>
+
+    <Row>
+      <CivilizationType>CIVILIZATION_MINOR</CivilizationType>
+      <UnitClassType>UNITCLASS_AIRFIELD_DEFENSE_SAM</UnitClassType>
+      <UnitType/>
+    </Row>
+    <Row>
+      <CivilizationType>CIVILIZATION_BARBARIAN</CivilizationType>
+      <UnitClassType>UNITCLASS_AIRFIELD_DEFENSE_SAM</UnitClassType>
+      <UnitType/>
+    </Row>
+  </Civilization_UnitClassOverrides>
+
+  <Language_en_US>
+    <Row Tag="TXT_KEY_UNIT_AIRFIELD_DEFENSE_AA">
+      <Text>Airfield Defense - AA</Text>
+      <Gender>neuter:an</Gender>
+    </Row>
+    <Row Tag="TXT_KEY_UNIT_AIRFIELD_DEFENSE_AA_TEXT">
+      <Text>These artillery tubes fire shells up into the air. Upon reaching a pre-set height the shells explode, sending an expanding ball of deadly shrapnel into any nearby aircraft. Anti-Aircraft (or "ack-ack") guns are quite vulnerable to attack from the ground: if left unprotected they can be easily destroyed by any enemy infantry or armed unit.</Text>
+    </Row>
+    <Row Tag="TXT_KEY_UNIT_AIRFIELD_DEFENSE_AA_STRATEGY">
+      <Text>These specialized artillery units will automatically attack any air unit bombing a target within 2 tiles. (They can only intercept one unit per turn.) They are quite weak in combat against other ground units and should be defended by stronger units when under threat of ground attack.</Text>
+    </Row>
+    <Row Tag="TXT_KEY_UNIT_AIRFIELD_DEFENSE_AA_HELP">
+      <Text>Will intercept enemy aircraft which try to bomb nearby Units.</Text>
+    </Row>
+
+    <Row Tag="TXT_KEY_UNIT_AIRFIELD_DEFENSE_SAM">
+      <Text>Airfield Defense - SAM</Text>
+      <Gender>neuter:an</Gender>
+    </Row>
+    <Row Tag="TXT_KEY_UNIT_AIRFIELD_DEFENSE_SAM_TEXT">
+      <Text>As helicopters developed into more efficient killing machines, the infantry in turn developed weapons designed to combat the growing menace - not to mention the danger posed by jet fighters. Modern "SAMs" (surface-to-air missiles) are fast, light, and contain radar, allowing them to "lock on" to enemy aircraft and fly into them, exploding violently and doing all sorts of probably lethal damage to the fragile planes and choppers. In response more stealthy vehicles have been created and also better missile-jamming technology has been employed. Still, SAM launchers make it hot indeed for enemy aircraft, providing good protection to fellow ground-pounders from the airborne menace.</Text>
+    </Row>
+    <Row Tag="TXT_KEY_UNIT_AIRFIELD_DEFENSE_SAM_STRATEGY">
+      <Text>Mobile SAM (surface-to-air) units provide an advancing army with anti-air defense. Mobile SAM units can intercept and shoot at enemy aircraft bombing targets within 2 hexes (but only one unit per turn). These units are fairly vulnerable to non-air attack and should be accompanied by infantry or armor. </Text>
+    </Row>
+    <Row Tag="TXT_KEY_UNIT_AIRFIELD_DEFENSE_SAM_HELP">
+      <Text>Will intercept enemy aircraft which try to bomb nearby Units.</Text>
+    </Row>
+  </Language_en_US>
+</GameData>

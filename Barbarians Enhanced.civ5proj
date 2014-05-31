@@ -31,6 +31,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>BarbariansEnhanced.sql</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>SmokeyUnits.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadLandmarkSystem>true</ReloadLandmarkSystem>
     <ReloadUnitSystem>true</ReloadUnitSystem>
@@ -40,7 +45,7 @@
         <Type>InGameUIAddin</Type>
         <Name>BE_Main</Name>
         <Description />
-        <FileName>BE_Main.lua</FileName>
+        <FileName>Lua/BE_Main.lua</FileName>
       </Content>
     </ModContent>
   </PropertyGroup>
@@ -56,15 +61,11 @@
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="BE_Init.lua">
+    <Content Include="Assets\CityBannerManager.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="BE_Main.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="BE_Popup.lua">
+    <Content Include="Assets\DiploList.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -76,11 +77,47 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="SaveUtils.lua">
+    <Content Include="delete_me\ImprovementAirfieldArtwork.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="delete_me\LandCarriers.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="delete_me\LandCarriers.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="delete_me\LandCarriers.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="delete_me\LandCarriersArt_AA.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="delete_me\RedDiplomacy.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\BE_Init.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="ShareData.lua">
+    <Content Include="Lua\BE_Main.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\BE_Popup.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\SaveUtils.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\ShareData.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -136,9 +173,15 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="SmokeyUnits.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="delete_me" />
+    <Folder Include="Lua" />
+    <Folder Include="Assets" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
 </Project>
